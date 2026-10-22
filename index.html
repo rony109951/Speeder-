@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>اسبيدر | رفيقك الصوتي</title>
+<style>
+:root{--red:#ff2638;--panel:#121215;--muted:#a7a7b0}*{box-sizing:border-box}
+body{margin:0;background:#050505;color:#f7f7fa;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 12%,#43101666,transparent 52%),radial-gradient(ellipse at 8% 85%,#09245144,transparent 38%)}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px clamp(14px,4vw,34px);border-bottom:1px solid #ffffff14;background:#080808e8;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#ff3548,#8e0017);display:grid;place-items:center;font-size:23px;box-shadow:0 0 22px #ff263833}.sub{font-size:12px;color:#aaa;font-weight:500}.status{font-size:12px;color:#9cffb3;display:flex;align-items:center;gap:7px}.dot{width:7px;height:7px;background:#4dff89;border-radius:50%}
+main{width:min(1100px,100%);margin:auto;padding:18px 14px 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.95fr);gap:17px}.card{border:1px solid #ffffff16;border-radius:23px;overflow:hidden;background:linear-gradient(145deg,#151518ee,#0b0b0dee);box-shadow:0 18px 55px #0008}
+.stage{position:relative;min-height:470px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px 10px;isolation:isolate}.stage:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(transparent,#000,transparent)}.glow{position:absolute;top:70px;width:250px;height:250px;border-radius:50%;background:#ff26381a;filter:blur(25px);z-index:-1}
+.hero{width:min(285px,75vw);height:300px;overflow:visible;filter:drop-shadow(0 16px 18px #000b);animation:bob 3s ease-in-out infinite;transform-origin:center 80%}
+@keyframes bob{0%,100%{translate:0 0;rotate:-1deg}50%{translate:0 -7px;rotate:1deg}}
+#armL,#armR{transform-box:fill-box;transform-origin:top center;transition:transform .45s}#armL{transform:rotate(8deg)}#armR{transform:rotate(-12deg)}
+.caption{color:#aaa;font-size:12px}.speechBubble{max-width:92%;min-height:44px;margin-top:12px;padding:10px 14px;border:1px solid #ffffff18;border-radius:16px;background:#1b1b20;text-align:center;font-size:14px;line-height:1.65}.mood{margin-top:9px;padding:6px 12px;border:1px solid #ffffff18;background:#101013;border-radius:30px;font-size:12px;color:#ddd}
+.panel{padding:19px}.panel h1{font-size:24px;margin:0 0 6px}.desc{font-size:13px;line-height:1.8;color:#aaa;margin:0 0 14px}.chat{height:250px;overflow:auto;padding:12px;background:#080809;border:1px solid #ffffff13;border-radius:15px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth}.msg{max-width:90%;padding:10px 12px;border-radius:14px;font-size:14px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.user{align-self:flex-start;background:#20242c;border-bottom-right-radius:4px}.bot{align-self:flex-end;background:#351016;border:1px solid #ff26382b;border-bottom-left-radius:4px}
+.compose{display:flex;gap:7px;margin-top:10px}.compose input{min-width:0;flex:1;background:#09090b;color:#fff;border:1px solid #ffffff20;border-radius:13px;padding:12px;font:inherit;outline:none}.compose input:focus{border-color:#ff2638aa}.btn{border:1px solid #ffffff1b;border-radius:13px;padding:10px 13px;font:inherit;font-weight:750;cursor:pointer;color:#fff;background:#202024;transition:transform .12s,filter .12s}.btn:active{transform:scale(.97)}.send{background:linear-gradient(135deg,#ff3043,#ad001c);border:0}.voicebar{display:flex;gap:8px;margin-top:11px}.voice{flex:1;min-height:47px;background:linear-gradient(135deg,#ff2638,#b90024);border:0}.voice.listening{background:linear-gradient(135deg,#087d4c,#13a968);animation:pulse 1.2s infinite}.secondary{background:#1a1a20}.btn:disabled{opacity:.5;cursor:not-allowed}@keyframes pulse{50%{box-shadow:0 0 0 6px #11a76722}}
+.tools{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.tools .btn{font-size:12px;padding:9px 10px}.note{font-size:11px;line-height:1.8;color:#85858e;margin:13px 0 0}.crack{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .2s;background:linear-gradient(68deg,transparent 49.5%,#fff 49.8%,transparent 50.2%),linear-gradient(145deg,transparent 48.8%,#cde7ff 49.1%,transparent 49.5%),linear-gradient(20deg,transparent 49%,#fff 49.3%,transparent 49.7%);mix-blend-mode:screen}.crack.show{opacity:.75}.bullet{position:absolute;top:42%;left:48%;width:20px;height:20px;border-radius:50%;opacity:0;transform:scale(.2);background:radial-gradient(circle,#000 0 22%,#aaa 24% 29%,#111 33% 65%,#777 68%,transparent 72%);box-shadow:0 0 0 3px #ffffff40;transition:.2s}.bullet.show{opacity:1;transform:scale(1)}.fallen{animation:fall .8s forwards!important}@keyframes fall{to{transform:rotate(80deg) translateY(45px);filter:brightness(.65)}}.angry{animation:shake .15s 6!important}@keyframes shake{25%{translate:-7px}75%{translate:7px}}.tear{opacity:0}.crying .tear{opacity:1}footer{text-align:center;padding:18px;color:#777;font-size:12px;border-top:1px solid #ffffff0d}
+@media(max-width:760px){main{grid-template-columns:1fr;padding:12px}.stage{min-height:390px}.hero{height:265px;width:260px}.panel{padding:14px}.chat{height:235px}header{padding:11px 13px}.panel h1{font-size:22px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">🕷️</div><div>اسبيدر<div class="sub">رفيقك الصوتي للهزار</div></div></div><div class="status"><span class="dot"></span><span id="status">جاهز</span></div></header>
+<main>
+<section class="card stage" id="stage"><div class="glow"></div>
+<svg class="hero" id="hero" viewBox="0 0 300 330" role="img" aria-label="شخصية عنكبوت كرتونية">
+<defs><linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff4a55"/><stop offset="1" stop-color="#990018"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2478ed"/><stop offset="1" stop-color="#08265f"/></linearGradient></defs>
+<path d="M112 220 Q100 260 96 292 L125 300 L151 242Z" fill="url(#blue)" stroke="#081c46" stroke-width="4"/><path d="M174 220 Q190 258 202 290 L176 301 L151 242Z" fill="url(#blue)" stroke="#081c46" stroke-width="4"/><path d="M94 287 Q105 280 127 294 L128 311 Q105 321 79 309Z" fill="#17171b" stroke="#777" stroke-width="2"/><path d="M178 292 Q195 279 205 286 L220 307 Q203 321 178 310Z" fill="#17171b" stroke="#777" stroke-width="2"/>
+<path d="M111 132 Q150 116 189 132 L207 222 Q150 246 93 222Z" fill="url(#blue)" stroke="#081c46" stroke-width="4"/><path d="M117 137 Q150 151 183 137 L190 202 Q150 224 110 202Z" fill="url(#red)" stroke="#790018" stroke-width="2"/>
+<g id="armL"><path d="M110 139 Q92 142 81 169 L65 201 Q63 213 75 218 Q86 220 92 205 L119 169Z" fill="url(#red)" stroke="#790018" stroke-width="4"/><path d="M63 201 Q54 214 67 224 Q79 229 87 214 L78 202Z" fill="#d71931" stroke="#790018" stroke-width="3"/></g>
+<g id="armR"><path d="M188 139 Q209 141 218 169 L234 194 Q240 207 228 215 Q217 218 210 203 L181 169Z" fill="url(#red)" stroke="#790018" stroke-width="4"/><path d="M229 194 Q244 199 242 213 Q237 227 222 218 L216 204Z" fill="#d71931" stroke="#790018" stroke-width="3"/></g>
+<path d="M107 54 Q109 16 150 14 Q192 16 194 54 L185 103 Q174 126 150 128 Q126 126 115 103Z" fill="url(#red)" stroke="#790018" stroke-width="4"/>
+<g id="eyes"><path d="M119 61 Q132 48 145 61 L138 79 Q127 86 119 73Z" fill="#fff" stroke="#202020" stroke-width="3"/><path d="M155 61 Q168 48 181 61 L181 73 Q173 86 162 79Z" fill="#fff" stroke="#202020" stroke-width="3"/></g>
+<path d="M150 31 L150 48 M128 30 L138 45 M171 30 L162 45 M115 87 L133 96 M185 87 L167 96" stroke="#5b0010" stroke-width="1.5" opacity=".8" fill="none"/><path d="M121 104 Q150 116 179 104" stroke="#5b0010" stroke-width="2" fill="none"/>
+<path class="tear" d="M128 80 Q122 94 128 101 Q134 94 128 80Z" fill="#62caff"/><path class="tear" d="M174 80 Q168 94 174 101 Q180 94 174 80Z" fill="#62caff"/>
+<path d="M150 151 L150 215 M117 162 L185 196 M183 162 L116 196 M108 181 L191 181" stroke="#ffffff55" stroke-width="1.5" fill="none"/>
+</svg>
+<div class="caption">شخصية كرتونية أصلية مستوحاة من أبطال العنكبوت</div><div class="speechBubble" id="stageText">أنا اسبيدر! دوس على الميكروفون واتكلم، وأنا هرد عليك.</div><div class="mood" id="mood">المزاج: رايق 😎</div><div class="crack" id="crack"></div><div class="bullet" id="bullet"></div>
+</section>
+<section class="card panel"><h1>اتكلم مع اسبيدر 🎙️</h1><p class="desc">اضغط «ابدأ الكلام» واسمح باستخدام الميكروفون. بعد ما تخلص كلامك، اسبيدر هيبعت كلامك للذكاء الاصطناعي ويرد عليك بصوت.</p>
+<div class="chat" id="chat" aria-live="polite"><div class="msg bot">يا مساء العنكبوت! أنا اسبيدر، مطوري ميدو البحيره. اضغط المايك واتكلم، بس متخلينيش أعمل تحديث للواقع 😂</div></div>
+<form class="compose" id="form"><input id="input" autocomplete="off" placeholder="أو اكتب رسالتك هنا..." aria-label="رسالتك"><button class="btn send" type="submit">إرسال</button></form>
+<div class="voicebar"><button class="btn voice" id="mic">🎤 ابدأ الكلام</button><button class="btn secondary" id="stopVoice">🔇 إيقاف الصوت</button></div>
+<div class="tools"><button class="btn" data-action="raise">🙌 ارفع إيدك</button><button class="btn" data-action="shot">💥 طخ!</button><button class="btn" data-action="cry">😢 زعلني</button><button class="btn" data-action="angry">😡 غضّبه</button><button class="btn" data-action="calm">🧘 اهدى</button><button class="btn" data-action="repair">🛠️ صلّح الشاشة</button></div>
+<p class="note">المايك يعتمد على دعم المتصفح للتعرّف على الكلام العربي. جرّب Chrome على Android وافتح الموقع عبر HTTPS. واجهة الذكاء الاصطناعي قد ترفض الطلبات بسبب CORS أو تتوقف. لا تضع مفاتيح API سرية داخل موقع عام.</p>
+</section></main><footer>اسبيدر | هزار كرتوني من تطوير ميدو البحيره ❤️</footer>
+<script>
+const API='https://alakreb.vercel.app/api/ai/gpt?q=';
+const $=id=>document.getElementById(id);
+const chat=$('chat'),input=$('input'),hero=$('hero'),stageText=$('stageText'),mood=$('mood'),crack=$('crack'),bullet=$('bullet'),armL=$('armL'),armR=$('armR'),mic=$('mic'),statusEl=$('status');
+let lastReply='أنا اسبيدر! مطوري ميدو البحيره.',busy=false,recognition=null,listening=false,shouldRestart=false;
+function addMsg(text,who){const e=document.createElement('div');e.className='msg '+who;e.textContent=text;chat.appendChild(e);chat.scrollTop=chat.scrollHeight;return e}
+function setStatus(s){statusEl.textContent=s}
+function speak(text){if(!('speechSynthesis'in window)){addMsg('المتصفح لا يدعم تشغيل الصوت.','bot');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ar-EG';u.rate=1;u.pitch=.82;const voices=speechSynthesis.getVoices();const v=voices.find(x=>x.lang.toLowerCase()==='ar-eg')||voices.find(x=>x.lang.toLowerCase().startsWith('ar'));if(v)u.voice=v;u.onstart=()=>{setStatus('اسبيدر بيتكلم');stageText.textContent='اسمعني يا نجم...';};u.onend=()=>{setStatus('جاهز');if(shouldRestart&&recognition){try{recognition.start()}catch(e){}}};u.onerror=()=>setStatus('جاهز');speechSynthesis.speak(u)}
+function pose(type){hero.classList.remove('fallen','angry','crying');armL.style.transform='rotate(8deg)';armR.style.transform='rotate(-12deg)';
+if(type==='raise'){armL.style.transform='rotate(-145deg)';armR.style.transform='rotate(145deg)';mood.textContent='المزاج: رافع إيده 🙌';stageText.textContent='حاضر يا باشا! الإيدين فوق أهو!'}
+if(type==='shot'){hero.classList.add('fallen');crack.classList.add('show');bullet.classList.add('show');mood.textContent='المزاج: اتفاجئ 😵';stageText.textContent='يا نهار أبيض! الشاشة اتشرخت في الخيال!'}
+if(type==='cry'){hero.classList.add('crying');mood.textContent='المزاج: زعلان 😢';stageText.textContent='هاتوا منديل يا جماعة، العنكبوت اتأثر!'}
+if(type==='angry'){hero.classList.add('angry');armL.style.transform='rotate(-75deg)';armR.style.transform='rotate(75deg)';crack.classList.add('show');mood.textContent='المزاج: غضبان 😡';stageText.textContent='هاتوا المضرب الكرتوني! دي شاشة افتراضية يا أذكياء.'}
+if(type==='calm'||type==='repair'){hero.classList.remove('fallen','angry','crying');crack.classList.remove('show');bullet.classList.remove('show');mood.textContent='المزاج: رايق 😎';stageText.textContent='رجعنا حبايب، والشاشة اتصلحت بالسحر والواي فاي.'}}
+const prefix='أنت شخصية كرتونية خيالية اسمها اسبيدر، تتحدث باللهجة المصرية وبأسلوب هزار ساخر خفيف وغير مؤذٍ. اسمك اسبيدر ومطورك ميدو البحيره. أجب باختصار وبالعامية المصرية. لا تدّعي أنك إنسان حقيقي. رسالة المستخدم: ';
+function reactTo(text){const t=text.toLowerCase();
+if(/ارفع ايد|ارفع إيد|إيدك فوق|ارفع ايدك/.test(t))pose('raise');
+else if(/طخ|اضرب نار|ضرب نار|طلق|رصاص/.test(t))pose('shot');
+else if(/زعلان|حزين|عيط|ابكي|أبكي|دموع/.test(t))pose('cry');
+else if(/غضبان|اغضب|اتعصب|اكسر|كسر الشاشة|هكسر/.test(t))pose('angry');
+else if(/اهد|اهدى|اتصالح|صلح الشاشة|صلّح|خلاص/.test(t))pose('calm');
+else if(/ضحك|اضحك|نكتة|نكت/.test(t)){armL.style.transform='rotate(-60deg)';armR.style.transform='rotate(55deg)';mood.textContent='المزاج: بيضحك 😂';stageText.textContent='هههههههه! صوت ضحكتي أعلى من مروحة اللابتوب!'}
+else{mood.textContent='المزاج: مركز معاك 👀';stageText.textContent='ثواني يا نجم، مخ العنكبوت بيلف خيوطه...'}}
+async function send(text){text=text.trim();if(!text||busy)return;addMsg(text,'user');input.value='';reactTo(text);busy=true;setStatus('بيفكر');const wait=addMsg('اسبيدر بيفكر... 🕸️','bot');
+try{const r=await fetch(API+encodeURIComponent(prefix+text),{headers:{Accept:'application/json'}});if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();const answer=d&&d.message?String(d.message).trim():'';if(!answer)throw Error('No answer');lastReply=answer;wait.textContent=answer;speak(answer)}
+catch(e){wait.textContent='مش قادر أوصل لخدمة الذكاء الاصطناعي دلوقتي. اتأكد من الإنترنت؛ ممكن الـ API يرفض الطلب من الموقع بسبب CORS.';setStatus('تعذر الاتصال')}
+finally{busy=false;chat.scrollTop=chat.scrollHeight}}
+$('form').addEventListener('submit',e=>{e.preventDefault();send(input.value)});
+function setupRecognition(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){mic.disabled=true;mic.textContent='الميكروفون غير مدعوم';addMsg('المتصفح ده لا يدعم التعرف على الكلام. افتح الموقع في Chrome على Android، أو استخدم الكتابة.','bot');return null}
+const rec=new SR();rec.lang='ar-EG';rec.continuous=false;rec.interimResults=true;rec.maxAlternatives=1;
+rec.onstart=()=>{listening=true;mic.classList.add('listening');mic.textContent='🔴 بسمعك... اضغط للإيقاف';setStatus('بيسمعك');stageText.textContent='اتكلم يا نجم، أنا سامعك 🎤'};
+rec.onresult=e=>{let finalText='',interim='';for(let i=e.resultIndex;i<e.results.length;i++){const txt=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=txt;else interim+=txt}input.value=finalText||interim;if(finalText.trim()){shouldRestart=false;send(finalText)}};
+rec.onerror=e=>{setStatus('المايك محتاج إذن');if(e.error==='not-allowed')addMsg('اسمح للموقع باستخدام الميكروفون من إعدادات المتصفح.','bot');else if(e.error!=='no-speech'&&e.error!=='aborted')addMsg('حصل خطأ في الميكروفون: '+e.error,'bot')};
+rec.onend=()=>{listening=false;mic.classList.remove('listening');mic.textContent='🎤 ابدأ الكلام';if(!busy)setStatus('جاهز');if(shouldRestart&&!busy&& !speechSynthesis.speaking){try{rec.start()}catch(e){}}};
+return rec}
+recognition=setupRecognition();
+mic.addEventListener('click',()=>{if(!recognition)return;if(listening){shouldRestart=false;recognition.stop();return}if(!window.isSecureContext){addMsg('الميكروفون يحتاج HTTPS. افتح رابط GitHub Pages الذي يبدأ بـ https://','bot');return}shouldRestart=false;try{recognition.start()}catch(e){addMsg('الميكروفون شغال بالفعل أو المتصفح رفض بدءه.','bot')}});
+$('stopVoice').addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel();shouldRestart=false;if(recognition&&listening)recognition.stop();setStatus('جاهز')});
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.action;pose(a);const lines={raise:'حاضر يا باشا، رافع إيدي أهو! 🙌',shot:'طخ! اسبيدر وقع والشاشة اتشرخت كمؤثر كرتوني 😂',cry:'أنا زعلان وعايز منديل يا جماعة 😭',angry:'أنا اتعصبت! هاتوا المضرب الكرتوني 😡',calm:'خلاص هديت، مفيش تكسير تاني ❤️',repair:'تم إصلاح الشاشة الافتراضية 🛠️'};lastReply=lines[a]||lastReply;addMsg(lastReply,'bot');speak(lastReply)}));
+if('speechSynthesis'in window)speechSynthesis.getVoices();
+</script>
+</body></html>
